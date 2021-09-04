@@ -1,7 +1,8 @@
 title:            muanchiou
 description:      who is muanchiou
-url:              https://sansuiz.github.io/ME
-permalink:        pretty
+url:              https://sansuiz.github.io
+baseurl:          /ME
+permalink:        /ME/
 timezone:         America/New_York
 kramdown:
   hard_wrap: true

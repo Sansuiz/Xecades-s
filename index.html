@@ -1,78 +1,27 @@
----
-title: Hey, this is Mu-An.
-layout: default
-header_content: |
-  <span class="smol"><a href="/zh-TW">正體中文</a> / English</span>
----
+<!DOCTYPE html>
+<html lang="zh-cn">
 
-<ul class="terminal">
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I was at <a href="https://github.com/">GitHub</a> writing JavaScript and Ruby for 7 years (~2020).
-  {% endcapture %}{% include line.html i=i content=content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Keywords" content="Xecades,博客,blog,OI,信息学,IT,数学,math">
+    <meta name="description" content="Xecades的技术博客，记录有趣的数学、信息学、IT内容">
+    <meta name="author" content="Xecades">
+    
+    <noscript><meta http-equiv="refresh" content="0; url=/noscript/"></noscript>
+    <title>Xecades</title>
+</head>
 
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I co-founded <a href="https://www.zeczec.com/">嘖嘖</a>, a Taiwanese crowdfunding platform for creatives.
-  {% endcapture %}{% include line.html i=i content=content %}
+<body>
+    <div id="app">
+        <transition name="fade">
+             <router-view class="child" :lab="lab" :friend="friend" :timeline="timeline"></router-view>
+        </transition>
+    </div>
 
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I studied furniture design in <a href="https://www.instagram.com/p/SA0L5tpaqE/">the UK</a> and had lived there for 5 years.
-  {% endcapture %}{% include line.html i=i content=content %}
+    <script src="/js/HTML.js"></script>
+    <script src="/js/construct.js"></script>
+</body>
 
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I am <a href="https://www.instagram.com/p/B7NDr7YJ_Od/">Taiwanese</a>.
-  {% endcapture %}{% include line.html i=i content=content %}
-
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    Check out my open source work on <a href="https://github.com/muan" rel="me">GitHub</a>.
-  {% endcapture %}{% include line.html i=i content=content %}
-
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    You can find a live version of my CV at <a href="https://read.cv/muan" rel="me">read.cv/muan</a>.
-  {% endcapture %}{% include line.html i=i content=content %}
-
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I <a href="/notes">write random notes here</a>. Subscribe to them with <a href="/notes.xml">RSS feed</a> or on <a href="https://micro.blog/muan">micro.blog</a>.
-  {% endcapture %}{% include line.html i=i content=content %}
-
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    I try my best to stay away from <a href="https://twitter.com/muanchiou" rel="me">Twitter</a>.
-  {% endcapture %}{% include line.html i=i content=content %}
-</ul>
-
-<hr class="hr">
-
-<h2 class="text">Posts <span class="smol"><a href="/ME/feed.xml">[feed]</a></span></h2>
-<ul aria-label="posts" class="terminal">
-{% assign posts = site.pages | where: "feature", 1 %}
-{% for post in posts %}
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    <a href="/ME{{ post.url }}">{{ post.title }}</a>
-  {% endcapture %}{% include line.html i=i content=content %}
-{% endfor %}
-
-{% assign posts = site.posts | where: "feature", 1 %}
-{% for post in posts %}
-  {% assign i = i | plus: 1 %}
-  {% capture content do %}
-    <a href="/ME{{ post.url }}">{{ post.title }}</a> <time>{{ post.date | date_to_string }}</time>
-  {% endcapture %}{% include line.html i=i content=content %}
-{% endfor %}
-
-</ul>
-
-<hr class="hr">
-
-{% assign note = site.data.notes[0] %}
-<h2 class="text">Latest note <a href="/ME/notes" class="smol">(all)</a> <span class="smol">[{{ note.date | date: "%b %d, %Y" }}]</span></h2>
-<div class="note">
-  {{ note.content | markdownify }}
-</div>
+</html>
